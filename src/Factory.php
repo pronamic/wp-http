@@ -84,8 +84,6 @@ class Factory {
 
 		$file = $this->fakes[ $url ];
 
-		unset( $this->fakes[ $url ] );
-
 		$response = \file_get_contents( $file, true );
 
 		if ( false === $response ) {
