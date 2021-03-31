@@ -14,14 +14,47 @@ $data = $response->json();
 
 ### Faking Responses
 
-*.gitattributes*
+```php
+$url = 'https://www.pronamic.nl/wp-json/wp/v2/types/post';
+
+Http::fake( $url, __DIR__ . '/../http/pronamic-nl-wp-json-types-post.http' );
+
+$response = Http::get( $url );
+```
+
+### CR LF
+
+To store fake HTTP responses in `*.http` files and Git, keep the following in mind:
+
+> HTTP/1.1 defines the sequence CR LF as the end-of-line marker for all protocol elements
+
+https://tools.ietf.org/html/rfc2616#section-2.2
+
+**`.gitattributes`**
 
 ```
 *.http text eol=crlf
 ```
 
+You can use a tool like `unix2dos` to convert the line endings to CR LF:
+
 ```
 unix2dos *.http
+```
+
+If the line endings are not correct this can result in the following error:
+
+```
+Undefined offset: 2
+
+wordpress/wp-includes/class-http.php:732
+src/Factory.php:97
+wordpress/wp-includes/class-wp-hook.php:292
+wordpress/wp-includes/plugin.php:212
+wordpress/wp-includes/class-http.php:257
+wordpress/wp-includes/class-http.php:626
+wordpress/wp-includes/http.php:162
+src/Facades/Http.php:71
 ```
 
 ## Inspiration
