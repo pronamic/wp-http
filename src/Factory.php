@@ -59,6 +59,9 @@ class Factory {
 	/**
 	 * Fake.
 	 *
+	 * @link https://laravel.com/docs/8.x/http-client#faking-responses
+	 * @link https://github.com/laravel/framework/blob/8.x/src/Illuminate/Support/Facades/Http.php#L9
+	 * @link https://github.com/laravel/framework/blob/8.x/src/Illuminate/Http/Client/Factory.php#L121-L154
 	 * @param string $url  URL.
 	 * @param string $file File with HTTP response.
 	 * @return void
