@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<phpunit
+	bootstrap="tests/bootstrap.php"
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+>
+	<testsuites>
+		<testsuite name="Pronamic WordPress HTTP">
+			<directory suffix=".php">./tests/src</directory>
+		</testsuite>
+	</testsuites>
+
+	<filter>
+		<whitelist>
+			<directory suffix=".php">src</directory>
+		</whitelist>
+	</filter>
+
+	<logging>
+		<log type="coverage-clover" target="build/logs/clover.xml"/>
+	</logging>
+
+	<php>
+		<env name="WP_PHPUNIT__TESTS_CONFIG" value="tests/wp-config.php" />
+	</php>
+</phpunit>

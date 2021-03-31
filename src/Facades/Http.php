@@ -10,13 +10,17 @@
 
 namespace Pronamic\WordPress\Http\Facades;
 
+use Pronamic\WordPress\Http\Request;
 use Pronamic\WordPress\Http\Response;
+use Pronamic\WordPress\Http\Factory;
+use Pronamic\WordPress\Http\Handler;
 use WP_Error;
 
 /**
  * HTTP
  *
  * @link https://laravel.com/docs/8.x/http-client
+ * @link https://github.com/laravel/framework/blob/8.x/src/Illuminate/Support/Facades/Http.php
  * @author  Remco Tolsma
  * @version 2.5.0
  * @since   2.5.0
@@ -26,27 +30,51 @@ class Http {
 	 * Result.
 	 *
 	 * @param array|WP_Error $result Remote request result.
+	 * @param string         $method Method.
+	 * @param string         $url    URL.
+	 * @param array          $args   Arguments.
 	 * @return Response
 	 * @throws \Exception Throw exception on request error.
 	 */
-	private static function result( $result ) {
+	private static function result( $result, $handler ) {
 		if ( $result instanceof \WP_Error ) {
-			throw new \Exception( $result->get_error_message() );
+			throw new \Pronamic\WordPress\Http\Exceptions\Exception( $result->get_error_message(), new Request( $handler->method(), $handler->url(), $handler->args() ) );
 		}
 
 		return new Response( $result );
 	}
 
 	/**
+	 * Call the WordPress API.
+	 *
+	 * @param string $function Function.
+	 * @param string $url      URL.
+	 * @param array $args      Arguments.
+	 * @return Response
+	 */
+	private static function wp( $function, $url, $args ) {
+		$handler = new Handler( $url, $args );
+
+		$parsed_args = wp_parse_args( $args, array(
+			'pronamic_handler' => $handler,
+		) );
+
+		$result = self::result( $function( $url, $parsed_args ), $handler );
+
+		return $result;
+	}
+
+	/**
 	 * Request.
 	 *
 	 * @link https://developer.wordpress.org/reference/functions/wp_remote_request/
+	 * @link https://github.com/WordPress/WordPress/blob/5.7/wp-includes/class-http.php
 	 * @param string $url  URL.
 	 * @param array  $args Arguments.
 	 * @return Response
 	 */
-	public static function request( $url, $args ) {
-		return self::result( \wp_remote_request( $url, $args ) );
+	public static function request( $url, $args = array() ) {
+		return self::wp( '\wp_remote_request', $url, $args );
 	}
 
 	/**
@@ -57,8 +85,8 @@ class Http {
 	 * @param array  $args Arguments.
 	 * @return Response
 	 */
-	public static function get( $url, $args ) {
-		return self::result( \wp_remote_get( $url, $args ) );
+	public static function get( $url, $args = array() ) {
+		return self::wp( '\wp_remote_get', $url, $args );
 	}
 
 	/**
@@ -69,8 +97,8 @@ class Http {
 	 * @param array  $args Arguments.
 	 * @return Response
 	 */
-	public static function post( $url, $args ) {
-		return self::result( \wp_remote_post( $url, $args ) );
+	public static function post( $url, $args = array() ) {
+		return self::wp( '\wp_remote_post', $url, $args );
 	}
 
 	/**
@@ -81,7 +109,19 @@ class Http {
 	 * @param array  $args Arguments.
 	 * @return Response
 	 */
-	public static function head( $url, $args ) {
-		return self::result( \wp_remote_head( $url, $args ) );
+	public static function head( $url, $args = array() ) {
+		return self::wp( '\wp_remote_head', $url, $args );
+	}
+
+	/**
+	 * Fake.
+	 *
+	 * @param string $url  URL.
+	 * @param string $file File with HTTP response.
+	 */
+	public static function fake( $url, $file ) {
+		$factory = Factory::instance();
+
+		$factory->fake( $url, $file );
 	}
 }

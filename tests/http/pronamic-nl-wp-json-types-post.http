@@ -1,0 +1,50 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+Access-Control-Expose-Headers: X-WP-Total, X-WP-TotalPages, Link
+Allow: GET
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Type: application/json; charset=UTF-8
+Date: Wed, 31 Mar 2021 09:03:19 GMT
+Host-Header: 8441280b0c35cbc1147f8ba998a563a7
+Link: <https://www.pronamic.nl/wp-json/>; rel="https://api.w.org/"
+Server: nginx
+Transfer-Encoding: chunked
+Vary: Accept-Encoding
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Httpd: 1
+X-Proxy-Cache: HIT
+X-Robots-Tag: noindex
+
+{
+    "_links": {
+        "collection": [
+            {
+                "href": "https://www.pronamic.nl/wp-json/wp/v2/types"
+            }
+        ],
+        "curies": [
+            {
+                "href": "https://api.w.org/{rel}",
+                "name": "wp",
+                "templated": true
+            }
+        ],
+        "wp:items": [
+            {
+                "href": "https://www.pronamic.nl/wp-json/wp/v2/posts"
+            }
+        ]
+    },
+    "description": "",
+    "hierarchical": false,
+    "name": "Berichten",
+    "rest_base": "posts",
+    "slug": "post",
+    "taxonomies": [
+        "category",
+        "post_tag"
+    ],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v15.8 - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Weblog - WordPress Specialist - Pronamic - Internet &amp; online marketing</title>\n<meta name=\"description\" content=\"Lees wekelijks de meest interessante en vernieuwende artikelen over WordPress, Online Marketing en Internet in het algemeen.\" />\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://www.pronamic.nl/weblog/\" />\n<meta property=\"og:locale\" content=\"nl_NL\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Weblog - WordPress Specialist - Pronamic - Internet &amp; online marketing\" />\n<meta property=\"og:description\" content=\"Lees wekelijks de meest interessante en vernieuwende artikelen over WordPress, Online Marketing en Internet in het algemeen.\" />\n<meta property=\"og:url\" content=\"https://www.pronamic.nl/weblog/\" />\n<meta property=\"og:site_name\" content=\"Pronamic\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:site\" content=\"@pronamic\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"https://www.pronamic.nl/#organization\",\"name\":\"Pronamic\",\"url\":\"https://www.pronamic.nl/\",\"sameAs\":[\"https://www.facebook.com/Pronamic/\",\"https://www.instagram.com/pronamic/\",\"https://www.linkedin.com/company/pronamic\",\"https://twitter.com/pronamic\"],\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://www.pronamic.nl/#logo\",\"inLanguage\":\"nl\",\"url\":\"https://www.pronamic.nl/wp-content/uploads/2016/08/pronamic.png\",\"width\":250,\"height\":65,\"caption\":\"Pronamic\"},\"image\":{\"@id\":\"https://www.pronamic.nl/#logo\"}},{\"@type\":\"WebSite\",\"@id\":\"https://www.pronamic.nl/#website\",\"url\":\"https://www.pronamic.nl/\",\"name\":\"Pronamic\",\"description\":\"Internet, marketing &amp; WordPress experts\",\"publisher\":{\"@id\":\"https://www.pronamic.nl/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":\"https://www.pronamic.nl/?s={search_term_string}\",\"query-input\":\"required name=search_term_string\"}],\"inLanguage\":\"nl\"},{\"@type\":[\"WebPage\",\"CollectionPage\"],\"@id\":\"https://www.pronamic.nl/weblog/#webpage\",\"url\":\"https://www.pronamic.nl/weblog/\",\"name\":\"Weblog - WordPress Specialist - Pronamic - Internet & online marketing\",\"isPartOf\":{\"@id\":\"https://www.pronamic.nl/#website\"},\"datePublished\":\"2010-08-11T10:35:08+00:00\",\"dateModified\":\"2018-07-30T14:20:26+00:00\",\"description\":\"Lees wekelijks de meest interessante en vernieuwende artikelen over WordPress, Online Marketing en Internet in het algemeen.\",\"breadcrumb\":{\"@id\":\"https://www.pronamic.nl/weblog/#breadcrumb\"},\"inLanguage\":\"nl\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https://www.pronamic.nl/weblog/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://www.pronamic.nl/weblog/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"item\":{\"@type\":\"WebPage\",\"@id\":\"https://www.pronamic.nl/\",\"url\":\"https://www.pronamic.nl/\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"position\":2,\"item\":{\"@type\":\"WebPage\",\"@id\":\"https://www.pronamic.nl/weblog/\",\"url\":\"https://www.pronamic.nl/weblog/\",\"name\":\"Weblog\"}}]}]}</script>\n<!-- / Yoast SEO plugin. -->"
+}
