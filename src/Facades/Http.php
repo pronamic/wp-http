@@ -43,29 +43,6 @@ class Http {
 	}
 
 	/**
-	 * Call the WordPress API.
-	 *
-	 * @param string $function Function.
-	 * @param string $url      URL.
-	 * @param array  $args      Arguments.
-	 * @return Response
-	 */
-	private static function wp( $function, $url, $args ) {
-		$handler = new Handler( $url, $args );
-
-		$parsed_args = wp_parse_args(
-			$args,
-			array(
-				'pronamic_handler' => $handler,
-			)
-		);
-
-		$result = self::result( $function( $url, $parsed_args ), $handler );
-
-		return $result;
-	}
-
-	/**
 	 * Request.
 	 *
 	 * @link https://developer.wordpress.org/reference/functions/wp_remote_request/
@@ -75,7 +52,9 @@ class Http {
 	 * @return Response
 	 */
 	public static function request( $url, $args = array() ) {
-		return self::wp( '\wp_remote_request', $url, $args );
+		$handler = new Handler( $url, $args );
+
+		return self::result( \wp_remote_request( $handler->url(), $handler->args() ), $handler );
 	}
 
 	/**
@@ -87,7 +66,9 @@ class Http {
 	 * @return Response
 	 */
 	public static function get( $url, $args = array() ) {
-		return self::wp( '\wp_remote_get', $url, $args );
+		$handler = new Handler( $url, $args );
+
+		return self::result( \wp_remote_get( $handler->url(), $handler->args() ), $handler );
 	}
 
 	/**
@@ -99,7 +80,9 @@ class Http {
 	 * @return Response
 	 */
 	public static function post( $url, $args = array() ) {
-		return self::wp( '\wp_remote_post', $url, $args );
+		$handler = new Handler( $url, $args );
+
+		return self::result( \wp_remote_post( $handler->url(), $handler->args() ), $handler );
 	}
 
 	/**
@@ -111,7 +94,9 @@ class Http {
 	 * @return Response
 	 */
 	public static function head( $url, $args = array() ) {
-		return self::wp( '\wp_remote_head', $url, $args );
+		$handler = new Handler( $url, $args );
+
+		return self::result( \wp_remote_head( $handler->url(), $handler->args() ), $handler );
 	}
 
 	/**

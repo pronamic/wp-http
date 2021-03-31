@@ -49,6 +49,8 @@ class Handler {
 		$this->url  = $url;
 		$this->args = $args;
 
+		$this->args['pronamic_handler'] = $this;
+
 		\add_filter( 'http_request_args', array( $this, 'http_request_args' ), 1000 );
 	}
 
