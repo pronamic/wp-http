@@ -23,6 +23,7 @@ class CurlFormatter {
 	/**
 	 * Format.
 	 *
+	 * @param Request $request Request.
 	 * @return string
 	 */
 	public function format( Request $request ) {

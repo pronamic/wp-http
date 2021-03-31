@@ -96,7 +96,7 @@ class Handler {
 			return $parsed_args;
 		}
 
-		if ( $this !== $parsed_args['pronamic_handler' ] ) {
+		if ( $this !== $parsed_args['pronamic_handler'] ) {
 			return $parsed_args;
 		}
 

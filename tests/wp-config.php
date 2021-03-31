@@ -1,4 +1,15 @@
 <?php
+/**
+ * WordPress config
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2021 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Http
+ */
+
+// phpcs:disable WordPress.PHP.DisallowShortTernary.Found
+// phpcs:disable Squiz.Commenting.InlineComment.InvalidEndChar
 
 /* Path to the WordPress codebase you'd like to test. Add a forward slash in the end. */
 define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/wordpress/' );
@@ -30,12 +41,12 @@ define( 'WP_DEBUG', true );
 // WARNING WARNING WARNING!
 // These tests will DROP ALL TABLES in the database with the prefix named below.
 // DO NOT use a production database or one that is shared with something else.
-define( 'DB_NAME'       , getenv( 'WP_TESTS_DB_NAME' ) ?: 'wp_phpunit_tests' );
-define( 'DB_USER'       , getenv( 'WP_TESTS_DB_USER' ) ?: 'root' );
-define( 'DB_PASSWORD'   , getenv( 'WP_TESTS_DB_PASS' ) ?: '' );
-define( 'DB_HOST'       , getenv( 'WP_TESTS_DB_HOST' ) ?: 'localhost' );
-define( 'DB_CHARSET'    , 'utf8' );
-define( 'DB_COLLATE'    , '' );
+define( 'DB_NAME', getenv( 'WP_TESTS_DB_NAME' ) ?: 'wp_phpunit_tests' );
+define( 'DB_USER', getenv( 'WP_TESTS_DB_USER' ) ?: 'root' );
+define( 'DB_PASSWORD', getenv( 'WP_TESTS_DB_PASS' ) ?: '' );
+define( 'DB_HOST', getenv( 'WP_TESTS_DB_HOST' ) ?: 'localhost' );
+define( 'DB_CHARSET', 'utf8' );
+define( 'DB_COLLATE', '' );
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -43,14 +54,14 @@ define( 'DB_COLLATE'    , '' );
  * Change these to different unique phrases!
  * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
  */
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
+define( 'AUTH_KEY', 'put your unique phrase here' );
+define( 'SECURE_AUTH_KEY', 'put your unique phrase here' );
+define( 'LOGGED_IN_KEY', 'put your unique phrase here' );
+define( 'NONCE_KEY', 'put your unique phrase here' );
+define( 'AUTH_SALT', 'put your unique phrase here' );
 define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-define( 'NONCE_SALT',       'put your unique phrase here' );
+define( 'LOGGED_IN_SALT', 'put your unique phrase here' );
+define( 'NONCE_SALT', 'put your unique phrase here' );
 
 define( 'WP_TESTS_DOMAIN', 'example.org' );
 define( 'WP_TESTS_EMAIL', 'admin@example.org' );

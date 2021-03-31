@@ -17,6 +17,7 @@
 	<rule ref="PHPCompatibilityWP" />
 
 	<rule ref="WordPress">
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
 		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
 	</rule>
 </ruleset>

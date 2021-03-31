@@ -23,6 +23,7 @@ class HttpieFormatter {
 	/**
 	 * Format request.
 	 *
+	 * @param Request $request Request.
 	 * @return string
 	 */
 	public function format( Request $request ) {

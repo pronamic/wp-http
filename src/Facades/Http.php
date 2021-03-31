@@ -29,12 +29,10 @@ class Http {
 	/**
 	 * Result.
 	 *
-	 * @param array|WP_Error $result Remote request result.
-	 * @param string         $method Method.
-	 * @param string         $url    URL.
-	 * @param array          $args   Arguments.
+	 * @param array|WP_Error $result  Remote request result.
+	 * @param string         $handler Handler.
 	 * @return Response
-	 * @throws \Exception Throw exception on request error.
+	 * @throws \Pronamic\WordPress\Http\Exceptions\Exception Throw exception on request error.
 	 */
 	private static function result( $result, $handler ) {
 		if ( $result instanceof \WP_Error ) {
@@ -49,15 +47,18 @@ class Http {
 	 *
 	 * @param string $function Function.
 	 * @param string $url      URL.
-	 * @param array $args      Arguments.
+	 * @param array  $args      Arguments.
 	 * @return Response
 	 */
 	private static function wp( $function, $url, $args ) {
 		$handler = new Handler( $url, $args );
 
-		$parsed_args = wp_parse_args( $args, array(
-			'pronamic_handler' => $handler,
-		) );
+		$parsed_args = wp_parse_args(
+			$args,
+			array(
+				'pronamic_handler' => $handler,
+			)
+		);
 
 		$result = self::result( $function( $url, $parsed_args ), $handler );
 
