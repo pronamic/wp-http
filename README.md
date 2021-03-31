@@ -26,6 +26,39 @@ $response = \wp_remote_get( $url );
 $response = Http::get( $url );
 ```
 
+### PHPUnit
+
+```php
+<?php
+
+namespace YourNamespace;
+
+use Pronamic\WordPress\Http\Factory;
+
+class YourTest extends \WP_UnitTestCase {
+	/**
+	 * Setup.
+	 */
+	public function setUp() {
+		parent::setUp();
+
+		$this->factory = new Factory();
+	}
+
+	/**
+	 * Test request.
+	 */
+	public function test_request() {
+		$this->factory->fake( 'http://example.com/', __DIR__ . '/../http/example-com.http' );
+
+		$result = \wp_remote_get( 'http://example.com/' );
+
+		// asserts
+	}
+}
+
+```
+
 ### CR LF
 
 To store fake HTTP responses in `*.http` files and Git, keep the following in mind:
