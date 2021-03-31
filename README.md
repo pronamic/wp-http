@@ -19,6 +19,10 @@ $url = 'https://www.pronamic.nl/wp-json/wp/v2/types/post';
 
 Http::fake( $url, __DIR__ . '/../http/pronamic-nl-wp-json-types-post.http' );
 
+$response = \wp_remote_get( $url );
+
+// or
+
 $response = Http::get( $url );
 ```
 
