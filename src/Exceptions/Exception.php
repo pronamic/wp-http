@@ -21,6 +21,13 @@ use Pronamic\WordPress\Http\Request;
  */
 class Exception extends \Exception {
 	/**
+	 * Request.
+	 *
+	 * @var Request
+	 */
+	private $request;
+
+	/**
 	 * Construct exception.
 	 *
 	 * @param string  $message Message.

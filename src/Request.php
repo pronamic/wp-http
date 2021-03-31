@@ -35,16 +35,16 @@ class Request {
 	/**
 	 * Request arguments.
 	 *
-	 * @var array
+	 * @var array<string, mixed>
 	 */
 	private $args;
 
 	/**
 	 * Construct request.
 	 *
-	 * @param string $method Method.
-	 * @param string $url    URL.
-	 * @param array  $args   Arguments.
+	 * @param string               $method Method.
+	 * @param string               $url    URL.
+	 * @param array<string, mixed> $args   Arguments.
 	 */
 	public function __construct( $method, $url, $args = array() ) {
 		$this->method = $method;
@@ -73,7 +73,7 @@ class Request {
 	/**
 	 * Arguments
 	 *
-	 * @return array
+	 * @return array<string, mixed>
 	 */
 	public function args() {
 		return $this->args;
@@ -82,7 +82,7 @@ class Request {
 	/**
 	 * Headers.
 	 *
-	 * @return array
+	 * @return array<string, string>
 	 */
 	public function headers() {
 		if ( ! \array_key_exists( 'headers', $this->args ) ) {

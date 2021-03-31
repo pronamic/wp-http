@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<psalm autoloader="tests/bootstrap.php" allowStringToStandInForClass="true">
+    <projectFiles>
+        <directory name="src" />
+    </projectFiles>
+</psalm>

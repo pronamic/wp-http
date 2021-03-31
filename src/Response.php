@@ -22,14 +22,14 @@ class Response {
 	/**
 	 * Remote request response array.
 	 *
-	 * @var array
+	 * @var array<string, mixed>
 	 */
 	private $array;
 
 	/**
 	 * Construct response array.
 	 *
-	 * @param array $array WordPress remote request response array.
+	 * @param array<string, mixed> $array WordPress remote request response array.
 	 */
 	public function __construct( $array ) {
 		$this->array = $array;

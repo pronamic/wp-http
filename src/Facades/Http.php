@@ -29,8 +29,8 @@ class Http {
 	/**
 	 * Result.
 	 *
-	 * @param array|WP_Error $result  Remote request result.
-	 * @param string         $handler Handler.
+	 * @param array<string>|WP_Error $result  Remote request result.
+	 * @param Handler        $handler Handler.
 	 * @return Response
 	 * @throws \Pronamic\WordPress\Http\Exceptions\Exception Throw exception on request error.
 	 */
@@ -47,8 +47,8 @@ class Http {
 	 *
 	 * @link https://developer.wordpress.org/reference/functions/wp_remote_request/
 	 * @link https://github.com/WordPress/WordPress/blob/5.7/wp-includes/class-http.php
-	 * @param string $url  URL.
-	 * @param array  $args Arguments.
+	 * @param string        $url  URL.
+	 * @param array<string> $args Arguments.
 	 * @return Response
 	 */
 	public static function request( $url, $args = array() ) {
@@ -61,8 +61,8 @@ class Http {
 	 * GET.
 	 *
 	 * @link https://developer.wordpress.org/reference/functions/wp_remote_get/
-	 * @param string $url  URL.
-	 * @param array  $args Arguments.
+	 * @param string        $url  URL.
+	 * @param array<string> $args Arguments.
 	 * @return Response
 	 */
 	public static function get( $url, $args = array() ) {
@@ -75,8 +75,8 @@ class Http {
 	 * POST.
 	 *
 	 * @link https://developer.wordpress.org/reference/functions/wp_remote_post/
-	 * @param string $url  URL.
-	 * @param array  $args Arguments.
+	 * @param string        $url  URL.
+	 * @param array<string> $args Arguments.
 	 * @return Response
 	 */
 	public static function post( $url, $args = array() ) {
@@ -89,8 +89,8 @@ class Http {
 	 * HEAD.
 	 *
 	 * @link https://developer.wordpress.org/reference/functions/wp_remote_head/
-	 * @param string $url  URL.
-	 * @param array  $args Arguments.
+	 * @param string        $url  URL.
+	 * @param array<string> $args Arguments.
 	 * @return Response
 	 */
 	public static function head( $url, $args = array() ) {
@@ -104,6 +104,7 @@ class Http {
 	 *
 	 * @param string $url  URL.
 	 * @param string $file File with HTTP response.
+	 * @return void
 	 */
 	public static function fake( $url, $file ) {
 		$factory = Factory::instance();

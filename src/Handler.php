@@ -28,22 +28,22 @@ class Handler {
 	/**
 	 * Arguments.
 	 *
-	 * @var array
+	 * @var array<string, mixed>
 	 */
 	private $args;
 
 	/**
 	 * Parsed arguments.
 	 *
-	 * @var null|array
+	 * @var null|array<string, mixed>
 	 */
 	private $parsed_args;
 
 	/**
 	 * Construct handler.
 	 *
-	 * @param string $url  URL.
-	 * @param array  $args Arguments.
+	 * @param string               $url  URL.
+	 * @param array<string, mixed> $args Arguments.
 	 */
 	public function __construct( $url, $args = array() ) {
 		$this->url  = $url;
@@ -81,7 +81,7 @@ class Handler {
 	/**
 	 * Arguments.
 	 *
-	 * @return array
+	 * @return array<string, mixed>
 	 */
 	public function args() {
 		return null === $this->parsed_args ? $this->args : $this->parsed_args;
@@ -90,8 +90,8 @@ class Handler {
 	/**
 	 * HTTP request arguments filter.
 	 *
-	 * @param array $parsed_args Parsed arguments.
-	 * @return array
+	 * @param array<string, mixed> $parsed_args Parsed arguments.
+	 * @return array<string, mixed>
 	 */
 	public function http_request_args( $parsed_args ) {
 		if ( ! \array_key_exists( 'pronamic_handler', $parsed_args ) ) {

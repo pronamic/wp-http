@@ -30,7 +30,7 @@ class Factory {
 	/**
 	 * Fakes.
 	 *
-	 * @var array
+	 * @var array<string, string>
 	 */
 	private $fakes;
 
@@ -61,6 +61,7 @@ class Factory {
 	 *
 	 * @param string $url  URL.
 	 * @param string $file File with HTTP response.
+	 * @return void
 	 */
 	public function fake( $url, $file ) {
 		$this->fakes[ $url ] = $file;
@@ -71,13 +72,13 @@ class Factory {
 	 *
 	 * @link https://github.com/WordPress/WordPress/blob/3.9.1/wp-includes/class-http.php#L150-L164
 	 *
-	 * @param false|array|WP_Error $preempt Whether to preempt an HTTP request's return value. Default false.
-	 * @param array                $r       HTTP request arguments.
-	 * @param string               $url     The request URL.
-	 * @return array
+	 * @param false|array<mixed>|\WP_Error $preempt Whether to preempt an HTTP request's return value. Default false.
+	 * @param array<string, string>                $r       HTTP request arguments.
+	 * @param string                               $url     The request URL.
+	 * @return false|array<mixed>|\WP_Error
 	 */
 	public function pre_http_request( $preempt, $r, $url ) {
-		if ( ! isset( $this->fakes[ $url ] ) ) {
+		if ( ! \array_key_exists( $url, $this->fakes ) ) {
 			return $preempt;
 		}
 
@@ -86,6 +87,10 @@ class Factory {
 		unset( $this->fakes[ $url ] );
 
 		$response = \file_get_contents( $file, true );
+
+		if ( false === $response ) {
+			throw new \Exception( \sprintf( 'Could not read fake HTTP response for URL: %s from file: %s', $url, $file ) );
+		}
 
 		$processed_response = \WP_Http::processResponse( $response );
 
