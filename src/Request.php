@@ -123,9 +123,9 @@ class Request {
 	/** 
 	 * Create request object from WordPress request arguments array.
 	 *
-	 * @param string $url  URL.
-	 * @param array  $args Arguments.
-	 * @return static
+	 * @param string               $url  URL.
+	 * @param array<string, mixed> $args Arguments.
+	 * @return self
 	 */
 	public static function from_args( $url, $args ) {
 		$method = 'GET';
@@ -134,6 +134,6 @@ class Request {
 			$method = $args['method'];
 		}
 
-		return new static( $method, $url, $args );
+		return new self( $method, $url, $args );
 	}
 }

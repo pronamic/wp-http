@@ -30,7 +30,7 @@ class Factory {
 	/**
 	 * Fakes.
 	 *
-	 * @var array<string, string>
+	 * @var array<callable>
 	 */
 	private $fakes;
 
@@ -62,13 +62,20 @@ class Factory {
 	 * @link https://laravel.com/docs/8.x/http-client#faking-responses
 	 * @link https://github.com/laravel/framework/blob/8.x/src/Illuminate/Support/Facades/Http.php#L9
 	 * @link https://github.com/laravel/framework/blob/8.x/src/Illuminate/Http/Client/Factory.php#L121-L154
-	 * @param string $url  URL.
-	 * @param string $file File with HTTP response.
+	 * @param string          $url      URL.
+	 * @param string|callable $callback Callback.
 	 * @return void
 	 */
 	public function fake( $url, $callback ) {
-		if ( \is_readable( $callback ) ) {
-			$callback = function( $request ) use ( $callback ) {
+		if ( \is_string( $callback ) ) {
+			$callback = 
+			/**
+			 * Resposne from file.
+			 *
+			 * @param Request $request Request.
+			 * @return array<string, mixed> 
+			 */
+			function( Request $request ) use ( $callback ) {
 				return Response::array_from_file( $callback );
 			};
 		}

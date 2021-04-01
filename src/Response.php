@@ -118,7 +118,7 @@ class Response {
 	/**
 	 * Get array.
 	 *
-	 * @return array
+	 * @return array<string, mixed>
 	 */
 	public function get_array() {
 		return $this->array;
@@ -130,7 +130,7 @@ class Response {
 	 * @link https://github.com/WordPress/WordPress/blob/3.9.1/wp-includes/class-http.php#L417-L431
 	 * @link https://github.com/WordPress/WordPress/blob/3.9.1/wp-includes/class-http.php#L433-L500
 	 * @param string $file File.
-	 * @return array
+	 * @return array<string, mixed>
 	 */
 	public static function array_from_file( $file ) {
 		$response = \file_get_contents( $file, true );
