@@ -66,8 +66,14 @@ class Factory {
 	 * @param string $file File with HTTP response.
 	 * @return void
 	 */
-	public function fake( $url, $file ) {
-		$this->fakes[ $url ] = $file;
+	public function fake( $url, $callback ) {
+		if ( \is_readable( $callback ) ) {
+			$callback = function( $request ) use ( $callback ) {
+				return Response::array_from_file( $callback );
+			};
+		}
+
+		$this->fakes[ $url ] = $callback;
 	}
 
 	/**
@@ -85,20 +91,10 @@ class Factory {
 			return $preempt;
 		}
 
-		$file = $this->fakes[ $url ];
+		$request = Request::from_args( $url, $r );
 
-		$response = \file_get_contents( $file, true );
+		$callback = $this->fakes[ $url ];
 
-		if ( false === $response ) {
-			throw new \Exception( \sprintf( 'Could not read fake HTTP response for URL: %s from file: %s', $url, $file ) );
-		}
-
-		$processed_response = \WP_Http::processResponse( $response );
-
-		$processed_headers = \WP_Http::processHeaders( $processed_response['headers'], $url );
-
-		$processed_headers['body'] = $processed_response['body'];
-
-		return $processed_headers;
+		return $callback( $request );
 	}
 }

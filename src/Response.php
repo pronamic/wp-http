@@ -114,4 +114,37 @@ class Response {
 
 		return $data;
 	}
+
+	/**
+	 * Get array.
+	 *
+	 * @return array
+	 */
+	public function get_array() {
+		return $this->array;
+	}
+
+	/**
+	 * From file.
+	 *
+	 * @link https://github.com/WordPress/WordPress/blob/3.9.1/wp-includes/class-http.php#L417-L431
+	 * @link https://github.com/WordPress/WordPress/blob/3.9.1/wp-includes/class-http.php#L433-L500
+	 * @param string $file File.
+	 * @return array
+	 */
+	public static function array_from_file( $file ) {
+		$response = \file_get_contents( $file, true );
+
+		if ( false === $response ) {
+			throw new \Exception( \sprintf( 'Could not load HTTP response from file: %s', $file ) );
+		}
+
+		$processed_response = \WP_Http::processResponse( $response );
+
+		$processed_headers = \WP_Http::processHeaders( $processed_response['headers'] );
+
+		$processed_headers['body'] = $processed_response['body'];
+
+		return $processed_headers;
+	}
 }

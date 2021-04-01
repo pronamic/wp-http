@@ -119,4 +119,21 @@ class Request {
 
 		return $formatter->format( $this );
 	}
+
+	/** 
+	 * Create request object from WordPress request arguments array.
+	 *
+	 * @param string $url  URL.
+	 * @param array  $args Arguments.
+	 * @return static
+	 */
+	public static function from_args( $url, $args ) {
+		$method = 'GET';
+
+		if ( \array_key_exists( 'method', $args ) ) {
+			$method = $args['method'];
+		}
+
+		return new static( $method, $url, $args );
+	}
 }
