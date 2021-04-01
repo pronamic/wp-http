@@ -97,6 +97,19 @@ class Request {
 	}
 
 	/**
+	 * Body.
+	 *
+	 * @return mixed
+	 */
+	public function body() {
+		if ( \array_key_exists( 'body', $this->args ) ) {
+			return $this->args['body'];
+		}
+
+		return null;
+	}
+
+	/**
 	 * As cURL.
 	 *
 	 * @link https://github.com/wp-pay-gateways/omnikassa-2/blob/2.3.1/src/Client.php#L172-L195
