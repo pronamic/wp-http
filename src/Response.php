@@ -131,6 +131,7 @@ class Response {
 	 * @link https://github.com/WordPress/WordPress/blob/3.9.1/wp-includes/class-http.php#L433-L500
 	 * @param string $file File.
 	 * @return array<string, mixed>
+	 * @throws \Exception Throws exceptions when reading file contents fails.
 	 */
 	public static function array_from_file( $file ) {
 		$response = \file_get_contents( $file, true );

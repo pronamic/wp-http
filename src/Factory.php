@@ -68,12 +68,12 @@ class Factory {
 	 */
 	public function fake( $url, $callback ) {
 		if ( \is_string( $callback ) ) {
-			$callback = 
+			$callback =
 			/**
 			 * Resposne from file.
 			 *
 			 * @param Request $request Request.
-			 * @return array<string, mixed> 
+			 * @return array<string, mixed>
 			 */
 			function( Request $request ) use ( $callback ) {
 				return Response::array_from_file( $callback );
@@ -89,8 +89,8 @@ class Factory {
 	 * @link https://github.com/WordPress/WordPress/blob/3.9.1/wp-includes/class-http.php#L150-L164
 	 *
 	 * @param false|array<mixed>|\WP_Error $preempt Whether to preempt an HTTP request's return value. Default false.
-	 * @param array<string, string>                $r       HTTP request arguments.
-	 * @param string                               $url     The request URL.
+	 * @param array<string, string>        $r       HTTP request arguments.
+	 * @param string                       $url     The request URL.
 	 * @return false|array<mixed>|\WP_Error
 	 */
 	public function pre_http_request( $preempt, $r, $url ) {

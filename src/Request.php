@@ -133,7 +133,7 @@ class Request {
 		return $formatter->format( $this );
 	}
 
-	/** 
+	/**
 	 * Create request object from WordPress request arguments array.
 	 *
 	 * @param string               $url  URL.
