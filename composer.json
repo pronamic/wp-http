@@ -35,6 +35,7 @@
 		"phpunit": "vendor/bin/phpunit",
 		"post-install-cmd": "echo 'Optionally run: composer bin all install'",
 		"post-update-cmd": "echo 'Optionally run: composer bin all update'",
-		"psalm": "vendor/bin/psalm"
+		"psalm": "vendor/bin/psalm",
+		"phpdoc": "vendor/bin/phpdoc --setting='guides.enabled=true'"
 	}
 }

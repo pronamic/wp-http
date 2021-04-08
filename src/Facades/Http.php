@@ -22,8 +22,8 @@ use WP_Error;
  * @link https://laravel.com/docs/8.x/http-client
  * @link https://github.com/laravel/framework/blob/8.x/src/Illuminate/Support/Facades/Http.php
  * @author  Remco Tolsma
- * @version 2.5.0
- * @since   2.5.0
+ * @version 1.0.0
+ * @since   1.0.0
  */
 class Http {
 	/**

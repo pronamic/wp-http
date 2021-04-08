@@ -1,9 +1,15 @@
+# Build
+/build/
+
 # Composer
 /composer.lock
 /vendor/
 
 # Composer bin plugin
 /vendor-bin/**/vendor
+
+# phpDocumentor
+/.phpdoc
 
 # WordPress
 /wordpress/
