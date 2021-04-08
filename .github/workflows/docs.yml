@@ -12,11 +12,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: php-actions/composer@v5
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
       with:
-        php_version: 7.4
+        php-version: '7.4'
 
     - name: phpDocumentor
       run: |
+        composer install
         composer bin phpdocumentor install
         composer run-script phpdoc
