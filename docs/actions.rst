@@ -5,4 +5,4 @@ Actions
 
 https://developer.wordpress.org/plugins/hooks/actions/
 
-*— Find a way to add the WordPress actions here. —*
+

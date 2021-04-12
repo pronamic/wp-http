@@ -5,4 +5,4 @@ Filters
 
 https://developer.wordpress.org/plugins/hooks/filters/
 
-*— Find a way to add the WordPress actions here. —*
+
