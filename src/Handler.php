@@ -14,7 +14,7 @@ namespace Pronamic\WordPress\Http;
  * Handler
  *
  * @author  Remco Tolsma
- * @version 1.0.0
+ * @version 1.0.1
  * @since   1.0.0
  */
 class Handler {
@@ -55,6 +55,16 @@ class Handler {
 	}
 
 	/**
+	 * Destruct.
+	 *
+	 * @link https://www.php.net/manual/en/language.oop5.decon.php
+	 * @since 1.0.1
+	 */
+	public function __destruct() {
+		\remove_filter( 'http_request_args', array( $this, 'http_request_args' ), 1000 );
+	}
+
+	/**
 	 * URL.
 	 *
 	 * @return string
@@ -90,6 +100,16 @@ class Handler {
 	/**
 	 * HTTP request arguments filter.
 	 *
+	 * In version `1.0.0` we removed the filter `http_request_args` in this filter callback:
+	 * `\remove_filter( 'http_request_args', array( $this, 'http_request_args' ), 1000 );`
+	 * This resulted in `500` errors if the Query Monitor plugin was activated, probably
+	 * due to the HTTP log functionality of this plugin. Therefore, we moved the removal
+	 * of this filter to the `__destruct()` function, this also ties in well with adding
+	 * the filter in the `__construct()` function.
+	 *
+	 * @link https://github.com/WordPress/WordPress/blob/5.7/wp-includes/class-http.php#L408-L419
+	 * @link https://github.com/johnbillion/query-monitor/blob/3.6.8/collectors/http.php
+	 *
 	 * @param array<string, mixed> $parsed_args Parsed arguments.
 	 * @return array<string, mixed>
 	 */
@@ -101,10 +121,6 @@ class Handler {
 		if ( $this !== $parsed_args['pronamic_handler'] ) {
 			return $parsed_args;
 		}
-
-		unset( $parsed_args['pronamic_handler'] );
-
-		\remove_filter( 'http_request_args', array( $this, 'http_request_args' ), 1000 );
 
 		$this->parsed_args = $parsed_args;
 
