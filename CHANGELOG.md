@@ -10,10 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Improved 'http_request_args' filter removal related to Query Monitor conflict.
 
-## [0.0.2] - 2014-07-10
-### Added
-- Explanation of the recommended reverse chronological release ordering.
-
 ## [1.0.0] - 2021-04-26
 - First release.
 
