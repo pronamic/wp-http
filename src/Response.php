@@ -116,6 +116,58 @@ class Response {
 	}
 
 	/**
+	 * SimpleXML.
+	 *
+	 * @link https://www.php.net/simplexml
+	 * @link https://github.com/wp-pay/core/blob/f5fdc22e6a39071e8f057669b802178515ce3d25/src/Core/Util.php#L68-L118
+	 * @since 1.1.0
+	 * @return \SimpleXMLElement
+	 * @throws \InvalidArgumentException If string could not be loaded in to a SimpleXMLElement object.
+	 */
+	public function simplexml() {
+		$body = $this->body();
+
+		// Suppress all XML errors.
+		$use_errors = \libxml_use_internal_errors( true );
+
+		// Load.
+		$xml = \simplexml_load_string( $body );
+
+		// Check result.
+		if ( false !== $xml ) {
+			// Set back to previous value.
+			\libxml_use_internal_errors( $use_errors );
+
+			return $xml;
+		}
+
+		// Error message.
+		$messages = array(
+			__( 'Could not load the XML string.', 'pronamic_ideal' ),
+		);
+
+		foreach ( \libxml_get_errors() as $error ) {
+			$messages[] = \sprintf(
+				'%s on line: %s, column: %s',
+				$error->message,
+				$error->line,
+				$error->column
+			);
+		}
+
+		// Clear errors.
+		\libxml_clear_errors();
+
+		// Set back to previous value.
+		\libxml_use_internal_errors( $use_errors );
+
+		// Throw exception.
+		$message = \implode( \PHP_EOL, $messages );
+
+		throw new \InvalidArgumentException( $message );
+	}
+
+	/**
 	 * Get array.
 	 *
 	 * @return array<string, mixed>
