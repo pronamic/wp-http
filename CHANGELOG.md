@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2021-06-18
+- Added body content to cURL and HTTPie formatters.
+
 ## [1.1.0] - 2021-05-20
 ### Added
 - Introduced a `$response->simplexml()` function similar to the `$response->json()` function.
@@ -17,7 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2021-04-26
 - First release.
 
-[Unreleased]: https://github.com/pronamic/wp-http/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/pronamic/wp-http/compare/1.1.1...HEAD
+[1.1.1]: https://github.com/pronamic/wp-http/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/pronamic/wp-http/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/pronamic/wp-http/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/pronamic/wp-http/releases/tag/1.0.0

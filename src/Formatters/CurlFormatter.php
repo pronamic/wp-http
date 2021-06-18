@@ -42,6 +42,10 @@ class CurlFormatter {
 			$command .= $tab . \sprintf( '--user-agent %s', \escapeshellarg( $args['user-agent'] ) ) . $eol;
 		}
 
+		if ( \array_key_exists( 'body', $args ) ) {
+			$command .= $tab . \sprintf( '--data %s', \escapeshellarg( $args['body'] ) ) . $eol;
+		}
+
 		$command .= $tab . '--verbose';
 
 		return $command;
