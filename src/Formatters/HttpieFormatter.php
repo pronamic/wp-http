@@ -41,7 +41,7 @@ class HttpieFormatter {
 
 		/**
 		 * Body.
-		 * 
+		 *
 		 * @link https://github.com/httpie/httpie/issues/356
 		 * @link https://github.com/httpie/httpie#redirected-input
 		 */
