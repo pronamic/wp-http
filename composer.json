@@ -20,10 +20,11 @@
 		"phpcompatibility/phpcompatibility-wp": "^2.1",
 		"phpmd/phpmd": "^2.9",
 		"phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0",
-		"roots/wordpress": "^5.6",
+		"roots/wordpress": "^5.8",
 		"squizlabs/php_codesniffer": "^3.5",
 		"wp-coding-standards/wpcs": "^2.3",
-		"wp-phpunit/wp-phpunit": "^5.6"
+		"wp-phpunit/wp-phpunit": "^5.8",
+		"yoast/phpunit-polyfills": "^1.0"
 	},
 	"scripts": {
 		"coveralls": "vendor/bin/php-coveralls -v",
@@ -31,15 +32,15 @@
 		"phpcs": "XDEBUG_MODE=off vendor/bin/phpcs -s -v",
 		"phplint": "find src tests -name '*.php' | xargs -n 1 -P 4 php -l",
 		"phpmd": "vendor/bin/phpmd src,tests text phpmd.ruleset.xml --suffixes php",
-		"phpstan": "vendor/bin/phpstan analyse --memory-limit 0",
+		"phpstan": "vendor/bin/phpstan analyse --memory-limit=-1",
 		"phpunit": "vendor/bin/phpunit",
 		"post-install-cmd": "echo 'Optionally run: composer bin all install'",
 		"post-update-cmd": "echo 'Optionally run: composer bin all update'",
 		"psalm": "vendor/bin/psalm",
-		"phpdoc": "vendor/bin/phpdoc --setting='guides.enabled=true'",
+		"phpdoc": "XDEBUG_MODE=off vendor/bin/phpdoc --setting='guides.enabled=true'",
 		"build-docs": [
-			"vendor/bin/wp-documentor parse ./src/ --format=phpdocumentor-rst --type=actions > docs/actions.rst",
-			"vendor/bin/wp-documentor parse ./src/ --format=phpdocumentor-rst --type=filters > docs/filters.rst",
+			"XDEBUG_MODE=off vendor/bin/wp-documentor parse ./src/ --format=phpdocumentor-rst --type=actions > docs/actions.rst",
+			"XDEBUG_MODE=off vendor/bin/wp-documentor parse ./src/ --format=phpdocumentor-rst --type=filters > docs/filters.rst",
 			"@phpdoc"
 		]
 	}

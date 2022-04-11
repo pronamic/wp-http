@@ -3,7 +3,7 @@
  * HTTPie formatter.
  *
  * @author    Pronamic <info@pronamic.eu>
- * @copyright 2005-2021 Pronamic
+ * @copyright 2005-2022 Pronamic
  * @license   GPL-3.0-or-later
  * @package   Pronamic\WordPress\Pay\Payments
  */
@@ -41,7 +41,7 @@ class HttpieFormatter {
 
 		/**
 		 * Body.
-		 * 
+		 *
 		 * @link https://github.com/httpie/httpie/issues/356
 		 * @link https://github.com/httpie/httpie#redirected-input
 		 */
