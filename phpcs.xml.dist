@@ -15,7 +15,7 @@
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>wordpress/*</exclude-pattern>
 
-	<rule ref="PHPCompatibilityWP" />
+	<rule ref="PronamicWP" />
 
 	<rule ref="WordPress">
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
