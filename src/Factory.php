@@ -51,9 +51,9 @@ class Factory {
 	 * Construct factory.
 	 */
 	public function __construct() {
-		$this->fakes = array();
+		$this->fakes = [];
 
-		\add_filter( 'pre_http_request', array( $this, 'pre_http_request' ), 10, 3 );
+		\add_filter( 'pre_http_request', [ $this, 'pre_http_request' ], 10, 3 );
 	}
 
 	/**

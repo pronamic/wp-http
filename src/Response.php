@@ -142,9 +142,9 @@ class Response {
 		}
 
 		// Error message.
-		$messages = array(
+		$messages = [
 			__( 'Could not load the XML string.', 'pronamic_ideal' ),
-		);
+		];
 
 		foreach ( \libxml_get_errors() as $error ) {
 			$messages[] = \sprintf(

@@ -46,7 +46,7 @@ class Request {
 	 * @param string               $url    URL.
 	 * @param array<string, mixed> $args   Arguments.
 	 */
-	public function __construct( $method, $url, $args = array() ) {
+	public function __construct( $method, $url, array $args = [] ) {
 		$this->method = $method;
 		$this->url    = $url;
 		$this->args   = $args;
@@ -86,11 +86,11 @@ class Request {
 	 */
 	public function headers() {
 		if ( ! \array_key_exists( 'headers', $this->args ) ) {
-			return array();
+			return [];
 		}
 
 		if ( ! \is_array( $this->args['headers'] ) ) {
-			return array();
+			return [];
 		}
 
 		return $this->args['headers'];

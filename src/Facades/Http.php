@@ -51,7 +51,7 @@ class Http {
 	 * @param array<string, mixed> $args Arguments.
 	 * @return Response
 	 */
-	public static function request( $url, $args = array() ) {
+	public static function request( $url, $args = [] ) {
 		$handler = new Handler( $url, $args );
 
 		return self::result( \wp_remote_request( $handler->url(), $handler->args() ), $handler );
@@ -65,7 +65,7 @@ class Http {
 	 * @param array<string, mixed> $args Arguments.
 	 * @return Response
 	 */
-	public static function get( $url, $args = array() ) {
+	public static function get( $url, $args = [] ) {
 		$handler = new Handler( $url, $args );
 
 		return self::result( \wp_remote_get( $handler->url(), $handler->args() ), $handler );
@@ -79,7 +79,7 @@ class Http {
 	 * @param array<string, mixed> $args Arguments.
 	 * @return Response
 	 */
-	public static function post( $url, $args = array() ) {
+	public static function post( $url, $args = [] ) {
 		$handler = new Handler( $url, $args );
 
 		return self::result( \wp_remote_post( $handler->url(), $handler->args() ), $handler );
@@ -93,7 +93,7 @@ class Http {
 	 * @param array<string, mixed> $args Arguments.
 	 * @return Response
 	 */
-	public static function head( $url, $args = array() ) {
+	public static function head( $url, $args = [] ) {
 		$handler = new Handler( $url, $args );
 
 		return self::result( \wp_remote_head( $handler->url(), $handler->args() ), $handler );

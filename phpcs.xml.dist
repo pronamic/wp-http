@@ -17,8 +17,11 @@
 
 	<rule ref="PronamicWP" />
 
-	<rule ref="WordPress">
-		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
-		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+	<rule ref="WordPressVIPMinimum">
+		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get" />
+
+		<exclude name="WordPressVIPMinimum.Hooks.RestrictedHooks.http_request_args" />
+
+		<exclude name="WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown" />
 	</rule>
 </ruleset>

@@ -45,13 +45,13 @@ class Handler {
 	 * @param string               $url  URL.
 	 * @param array<string, mixed> $args Arguments.
 	 */
-	public function __construct( $url, $args = array() ) {
+	public function __construct( $url, $args = [] ) {
 		$this->url  = $url;
 		$this->args = $args;
 
 		$this->args['pronamic_handler'] = $this;
 
-		\add_filter( 'http_request_args', array( $this, 'http_request_args' ), 1000 );
+		\add_filter( 'http_request_args', [ $this, 'http_request_args' ], 1000 );
 	}
 
 	/**
@@ -61,7 +61,7 @@ class Handler {
 	 * @since 1.0.1
 	 */
 	public function __destruct() {
-		\remove_filter( 'http_request_args', array( $this, 'http_request_args' ), 1000 );
+		\remove_filter( 'http_request_args', [ $this, 'http_request_args' ], 1000 );
 	}
 
 	/**
