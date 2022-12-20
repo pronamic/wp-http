@@ -1,6 +1,6 @@
 {
   "name": "@pronamic/wp-http",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "WordPress HTTP library.",
   "repository": {
     "type": "git",

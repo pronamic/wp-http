@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2022-12-20
+- Increased minimum PHP version to version `8` or higher.
+- Improved support for PHP `8.1` and `8.2`.
+- Removed usage of deprecated constant `FILTER_SANITIZE_STRING`.
+
+Full set of changes: [`1.1.3...1.2.0`][1.2.0]
+
+[1.2.0]: https://github.com/pronamic/wp-http/compare/1.1.3...1.2.0
+
 ## [1.1.3] - 2022-09-23
 - Coding standards.
 
