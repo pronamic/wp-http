@@ -11,5 +11,8 @@
 # phpDocumentor
 /.phpdoc
 
+# PHPUnit
+/.phpunit.result.cache
+
 # WordPress
 /wordpress/

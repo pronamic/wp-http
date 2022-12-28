@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Http;
 
+use PHPUnit\Framework\TestCase;
 use Pronamic\WordPress\Http\Facades\Http;
 
 /**
@@ -19,7 +20,7 @@ use Pronamic\WordPress\Http\Facades\Http;
  * @version 1.0.0
  * @since   1.0.0
  */
-class FactoryTest extends \WP_UnitTestCase {
+class FactoryTest extends TestCase {
 	/**
 	 * Test fake.
 	 */
