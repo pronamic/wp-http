@@ -21,4 +21,11 @@ jobs:
 
   coverage:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
-    uses: pronamic/actions/.github/workflows/coverage.yml@main
+    runs-on: ubuntu-latest
+    steps:
+    - uses: pronamic/actions/.github/workflows/coverage.yml@main
+
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
