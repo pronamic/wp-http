@@ -15,7 +15,9 @@
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>wordpress/*</exclude-pattern>
 
-	<rule ref="PronamicWP" />
+	<rule ref="PronamicWP">
+		<exclude name="Squiz.Commenting.FileComment.Missing" />
+	</rule>
 
 	<rule ref="WordPressVIPMinimum">
 		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get" />
