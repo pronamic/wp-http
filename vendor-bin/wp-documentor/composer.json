@@ -1,5 +1,5 @@
 {
     "require": {
-        "pronamic/wp-documentor": "^1.1"
+        "pronamic/wp-documentor": "^1.3"
     }
 }
