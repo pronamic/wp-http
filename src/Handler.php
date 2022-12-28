@@ -85,6 +85,10 @@ class Handler {
 			return 'GET';
 		}
 
+		if ( ! \is_string( $args['method'] ) ) {
+			return 'GET';
+		}
+
 		return $args['method'];
 	}
 

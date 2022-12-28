@@ -29,8 +29,8 @@ class Http {
 	/**
 	 * Result.
 	 *
-	 * @param array<string>|WP_Error $result  Remote request result.
-	 * @param Handler                $handler Handler.
+	 * @param array<string, mixed>|WP_Error $result  Remote request result.
+	 * @param Handler                       $handler Handler.
 	 * @return Response
 	 * @throws \Pronamic\WordPress\Http\Exceptions\Exception Throw exception on request error.
 	 */

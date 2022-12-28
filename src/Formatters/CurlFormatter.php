@@ -38,11 +38,11 @@ class CurlFormatter {
 
 		$args = $request->args();
 
-		if ( \array_key_exists( 'user-agent', $args ) ) {
+		if ( \array_key_exists( 'user-agent', $args ) && \is_string( $args['user-agent'] ) ) {
 			$command .= $tab . \sprintf( '--user-agent %s', \escapeshellarg( $args['user-agent'] ) ) . $eol;
 		}
 
-		if ( \array_key_exists( 'body', $args ) ) {
+		if ( \array_key_exists( 'body', $args ) && \is_string( $args['body'] ) ) {
 			$command .= $tab . \sprintf( '--data %s', \escapeshellarg( $args['body'] ) ) . $eol;
 		}
 

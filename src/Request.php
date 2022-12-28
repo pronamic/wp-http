@@ -143,7 +143,7 @@ class Request {
 	public static function from_args( $url, $args ) {
 		$method = 'GET';
 
-		if ( \array_key_exists( 'method', $args ) ) {
+		if ( \array_key_exists( 'method', $args ) && \is_string( $args['method'] ) ) {
 			$method = $args['method'];
 		}
 

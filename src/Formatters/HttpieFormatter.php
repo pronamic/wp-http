@@ -35,7 +35,7 @@ class HttpieFormatter {
 
 		$args = $request->args();
 
-		if ( \array_key_exists( 'user-agent', $args ) ) {
+		if ( \array_key_exists( 'user-agent', $args ) && \is_string( $args['user-agent'] ) ) {
 			$command .= \sprintf( ' User-Agent:%s', \escapeshellarg( $args['user-agent'] ) );
 		}
 
@@ -45,7 +45,7 @@ class HttpieFormatter {
 		 * @link https://github.com/httpie/httpie/issues/356
 		 * @link https://github.com/httpie/httpie#redirected-input
 		 */
-		if ( \array_key_exists( 'body', $args ) ) {
+		if ( \array_key_exists( 'body', $args ) && \is_string( $args['body'] ) ) {
 			$command = \sprintf(
 				'echo %s | %s',
 				\escapeshellarg( $args['body'] ),
