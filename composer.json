@@ -1,6 +1,7 @@
 {
 	"name": "pronamic/wp-http",
 	"description": "WordPress HTTP library.",
+	"type": "wordpress-plugin",
 	"autoload": {
 		"psr-4": {
 			"Pronamic\\WordPress\\Http\\": "src"
