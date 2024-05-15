@@ -24,15 +24,15 @@ class Response {
 	 *
 	 * @var array<string, mixed>
 	 */
-	private $array;
+	private $data;
 
 	/**
 	 * Construct response array.
 	 *
-	 * @param array<string, mixed> $array WordPress remote request response array.
+	 * @param array<string, mixed> $data WordPress remote request response array.
 	 */
-	public function __construct( $array ) {
-		$this->array = $array;
+	public function __construct( $data ) {
+		$this->data = $data;
 	}
 
 	/**
@@ -42,7 +42,7 @@ class Response {
 	 * @return int|string
 	 */
 	public function status() {
-		return \wp_remote_retrieve_response_code( $this->array );
+		return \wp_remote_retrieve_response_code( $this->data );
 	}
 
 	/**
@@ -52,7 +52,7 @@ class Response {
 	 * @return string
 	 */
 	public function message() {
-		return \wp_remote_retrieve_response_message( $this->array );
+		return \wp_remote_retrieve_response_message( $this->data );
 	}
 
 	/**
@@ -62,7 +62,7 @@ class Response {
 	 * @return string
 	 */
 	public function body() {
-		return \wp_remote_retrieve_body( $this->array );
+		return \wp_remote_retrieve_body( $this->data );
 	}
 
 	/**
@@ -87,8 +87,8 @@ class Response {
 			throw new \Exception(
 				\sprintf(
 					'Response is empty, HTTP response: "%s %s".',
-					\esc_html( \wp_remote_retrieve_response_code( $this->array ) ),
-					\esc_html( \wp_remote_retrieve_response_message( $this->array ) )
+					\esc_html( \wp_remote_retrieve_response_code( $this->data ) ),
+					\esc_html( \wp_remote_retrieve_response_message( $this->data ) )
 				)
 			);
 		}
@@ -103,8 +103,8 @@ class Response {
 			throw new \Exception(
 				\sprintf(
 					'Could not JSON decode response, HTTP response: "%s %s", HTTP body length: "%d", JSON error: "%s".',
-					\esc_html( \wp_remote_retrieve_response_code( $this->array ) ),
-					\esc_html( \wp_remote_retrieve_response_message( $this->array ) ),
+					\esc_html( \wp_remote_retrieve_response_code( $this->data ) ),
+					\esc_html( \wp_remote_retrieve_response_message( $this->data ) ),
 					\esc_html( \strlen( $body ) ),
 					\esc_html( \json_last_error_msg() )
 				),
@@ -173,7 +173,7 @@ class Response {
 	 * @return array<string, mixed>
 	 */
 	public function get_array() {
-		return $this->array;
+		return $this->data;
 	}
 
 	/**
