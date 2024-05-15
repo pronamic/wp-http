@@ -75,6 +75,7 @@ class Factory {
 			 * @param Request $request Request.
 			 * @return array<string, mixed>
 			 */
+			// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 			function ( Request $request ) use ( $callback ) {
 				return Response::array_from_file( $callback );
 			};
