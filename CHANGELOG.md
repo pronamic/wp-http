@@ -1,4 +1,3 @@
-[1.1.3]: https://github.com/pronamic/wp-http/compare/1.1.2...1.1.3
 # Changelog
 All notable changes to this project will be documented in this file.
 
@@ -37,6 +36,8 @@ Full set of changes: [`1.1.3...1.2.0`][1.2.0]
 
 ## [1.1.3] - 2022-09-23
 - Coding standards.
+
+[1.1.3]: https://github.com/pronamic/wp-http/compare/1.1.2...1.1.3
 
 ## [1.1.2] - 2022-04-11
 - Updated libraries.
