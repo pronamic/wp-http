@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.3] - 2024-05-15
+
+### Commits
+
+- Fixed "It is recommended not to use reserved keyword "array" as". ([a71a7e4](https://github.com/pronamic/wp-http/commit/a71a7e4301c924712714690553c1e5360d9909e9))
+- Fixed "All output should be run through an escaping function" warnings. ([d8651c6](https://github.com/pronamic/wp-http/commit/d8651c650403550d575f85eec74948457535b241))
+
+Full set of changes: [`1.2.2...1.2.3`][1.2.3]
+
+[1.2.3]: https://github.com/pronamic/wp-http/compare/v1.2.2...v1.2.3
+
 ## [1.2.2] - 2023-03-27
 
 ### Commits
