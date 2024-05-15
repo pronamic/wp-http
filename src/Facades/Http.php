@@ -36,7 +36,12 @@ class Http {
 	 */
 	private static function result( $result, $handler ) {
 		if ( $result instanceof \WP_Error ) {
-			throw new \Pronamic\WordPress\Http\Exceptions\Exception( $result->get_error_message(), new Request( $handler->method(), $handler->url(), $handler->args() ) );
+			$exception = new \Pronamic\WordPress\Http\Exceptions\Exception(
+				\esc_html( $result->get_error_message() ),
+				new Request( $handler->method(), $handler->url(), $handler->args() )
+			);
+
+			throw $exception;
 		}
 
 		return new Response( $result );

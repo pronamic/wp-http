@@ -87,8 +87,8 @@ class Response {
 			throw new \Exception(
 				\sprintf(
 					'Response is empty, HTTP response: "%s %s".',
-					\wp_remote_retrieve_response_code( $this->array ),
-					\wp_remote_retrieve_response_message( $this->array )
+					\esc_html( \wp_remote_retrieve_response_code( $this->array ) ),
+					\esc_html( \wp_remote_retrieve_response_message( $this->array ) )
 				)
 			);
 		}
@@ -103,12 +103,12 @@ class Response {
 			throw new \Exception(
 				\sprintf(
 					'Could not JSON decode response, HTTP response: "%s %s", HTTP body length: "%d", JSON error: "%s".',
-					\wp_remote_retrieve_response_code( $this->array ),
-					\wp_remote_retrieve_response_message( $this->array ),
-					\strlen( $body ),
-					\json_last_error_msg()
+					\esc_html( \wp_remote_retrieve_response_code( $this->array ) ),
+					\esc_html( \wp_remote_retrieve_response_message( $this->array ) ),
+					\esc_html( \strlen( $body ) ),
+					\esc_html( \json_last_error_msg() )
 				),
-				$json_error
+				(int) $json_error
 			);
 		}
 
@@ -164,7 +164,7 @@ class Response {
 		// Throw exception.
 		$message = \implode( \PHP_EOL, $messages );
 
-		throw new \InvalidArgumentException( $message );
+		throw new \InvalidArgumentException( \esc_html( $message ) );
 	}
 
 	/**
@@ -189,7 +189,7 @@ class Response {
 		$response = \file_get_contents( $file, true );
 
 		if ( false === $response ) {
-			throw new \Exception( \sprintf( 'Could not load HTTP response from file: %s', $file ) );
+			throw new \Exception( \sprintf( 'Could not load HTTP response from file: %s', \esc_html( $file ) ) );
 		}
 
 		$processed_response = \WP_Http::processResponse( $response );
