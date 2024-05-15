@@ -75,7 +75,7 @@ class Factory {
 			 * @param Request $request Request.
 			 * @return array<string, mixed>
 			 */
-			function( Request $request ) use ( $callback ) {
+			function ( Request $request ) use ( $callback ) {
 				return Response::array_from_file( $callback );
 			};
 		}
