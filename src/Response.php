@@ -87,7 +87,7 @@ class Response {
 			throw new \Exception(
 				\sprintf(
 					'Response is empty, HTTP response: "%s %s".',
-					\esc_html( \wp_remote_retrieve_response_code( $this->data ) ),
+					\esc_html( (string) \wp_remote_retrieve_response_code( $this->data ) ),
 					\esc_html( \wp_remote_retrieve_response_message( $this->data ) )
 				)
 			);
@@ -103,12 +103,12 @@ class Response {
 			throw new \Exception(
 				\sprintf(
 					'Could not JSON decode response, HTTP response: "%s %s", HTTP body length: "%d", JSON error: "%s".',
-					\esc_html( \wp_remote_retrieve_response_code( $this->data ) ),
+					\esc_html( (string) \wp_remote_retrieve_response_code( $this->data ) ),
 					\esc_html( \wp_remote_retrieve_response_message( $this->data ) ),
-					\esc_html( \strlen( $body ) ),
+					\esc_html( (string) \strlen( $body ) ),
 					\esc_html( \json_last_error_msg() )
 				),
-				(int) $json_error
+				\esc_html( $json_error )
 			);
 		}
 

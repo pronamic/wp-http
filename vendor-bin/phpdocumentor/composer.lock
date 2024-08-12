@@ -9,16 +9,16 @@
     "packages-dev": [
         {
             "name": "phar-io/composer-distributor",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/composer-distributor.git",
-                "reference": "34af1d33bdce88b8f7217f7d53bf3d4ebd36ae60"
+                "reference": "dd7d936290b2a42b0c64bfe08090b5c597c280c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/composer-distributor/zipball/34af1d33bdce88b8f7217f7d53bf3d4ebd36ae60",
-                "reference": "34af1d33bdce88b8f7217f7d53bf3d4ebd36ae60",
+                "url": "https://api.github.com/repos/phar-io/composer-distributor/zipball/dd7d936290b2a42b0c64bfe08090b5c597c280c9",
+                "reference": "dd7d936290b2a42b0c64bfe08090b5c597c280c9",
                 "shasum": ""
             },
             "require": {
@@ -72,7 +72,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phar-io/composer-distributor/issues",
-                "source": "https://github.com/phar-io/composer-distributor/tree/1.0.1"
+                "source": "https://github.com/phar-io/composer-distributor/tree/1.0.2"
             },
             "funding": [
                 {
@@ -80,7 +80,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-04-21T12:34:19+00:00"
+            "time": "2023-05-31T17:05:49+00:00"
         },
         {
             "name": "phar-io/executor",
@@ -223,16 +223,16 @@
         },
         {
             "name": "phpdocumentor/shim",
-            "version": "v3.3.1",
+            "version": "v3.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/shim.git",
-                "reference": "65f8734d91b294555fcb2ca8808f87811e18abed"
+                "reference": "1fa78ef4bf7f11b9e386e6d84abb37957eb7f908"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/shim/zipball/65f8734d91b294555fcb2ca8808f87811e18abed",
-                "reference": "65f8734d91b294555fcb2ca8808f87811e18abed",
+                "url": "https://api.github.com/repos/phpDocumentor/shim/zipball/1fa78ef4bf7f11b9e386e6d84abb37957eb7f908",
+                "reference": "1fa78ef4bf7f11b9e386e6d84abb37957eb7f908",
                 "shasum": ""
             },
             "require": {
@@ -253,9 +253,9 @@
                 "MIT"
             ],
             "support": {
-                "source": "https://github.com/phpDocumentor/shim/tree/v3.3.1"
+                "source": "https://github.com/phpDocumentor/shim/tree/v3.5.3"
             },
-            "time": "2022-03-25T16:05:14+00:00"
+            "time": "2024-07-18T21:35:16+00:00"
         }
     ],
     "aliases": [],
@@ -265,5 +265,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
