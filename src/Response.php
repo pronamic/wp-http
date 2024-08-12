@@ -108,7 +108,7 @@ class Response {
 					\esc_html( (string) \strlen( $body ) ),
 					\esc_html( \json_last_error_msg() )
 				),
-				\esc_html( $json_error )
+				(int) $json_error
 			);
 		}
 
